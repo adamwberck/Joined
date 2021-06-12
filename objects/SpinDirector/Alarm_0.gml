@@ -1,2 +1,0 @@
-/// @description Turn
-mWaiting = false;
