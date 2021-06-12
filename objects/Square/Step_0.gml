@@ -37,12 +37,16 @@ if(smile){
 		}
 	}
 	else{
-		if(!place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid)){
+		var squ = instance_place(x+vx*F_SPD,y+vy*F_SPD,Square)
+		if(instance_exists(squ)){
+			if(!squ.collide_check()){
+				x+=vx*F_SPD;
+				y+=vy*F_SPD;
+			}
+		}
+		else if(!place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid)){
 			x+=vx*F_SPD;
 			y+=vy*F_SPD;
-		}
-		else{
-			finish_move = true;
 		}
 	}
 }

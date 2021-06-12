@@ -1,6 +1,20 @@
 /// @description Init Values
 
 neighbors = ds_list_create();
+
+function collide_check(){
+	if(place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid)){
+		return true;
+	}
+	else{
+		var squ = instance_place(x+vx*F_SPD,y+vy*F_SPD,Square)
+		if(instance_exists(squ)){
+			return squ.collide_check();
+		}
+		return false;
+	}
+}
+
 function get_neighbors(){
 	for(var i=0;i<4;i++){
 		var s = 1//(F_SIZE div 2);
