@@ -13,6 +13,8 @@ k_cont_left = keyboard_check_pressed(vk_left);
 k_clock = keyboard_check_pressed(ord("E"));
 k_anti = keyboard_check_pressed(ord("Q"));
 
+
+
 if(face==Face.none && global.unaligned == 0){
 	align_to_grid(F_SPD);
 	update_face();
@@ -28,6 +30,7 @@ if(smile and !global.rotate){//WASD
 			moving = true;
 			global.unaligned++;
 			alarm[0]=(F_SIZE div F_SPD)+1;
+			Director.record_all(face);
 		}
 	}
 	else{
@@ -55,6 +58,7 @@ if(!global.cont && face==Face.happy && !global.rotate){//ARROW KEYS
 		set_neighbors();
 		var n = new_happy();
 		if(instance_exists(n)){
+			Director.record_all(Face.happy);
 			face = Face.joy;
 			n.face = Face.happy;
 		}
@@ -65,12 +69,14 @@ if(!global.cont && face==Face.happy && !global.rotate){//ARROW KEYS
 
 if(face==Face.happy and global.unaligned==0 and !moving and !global.cont and !global.rotate and(k_clock xor k_anti)){
 	global.rx = x; global.ry = y;
-	if(!Director.rotate_collide(k_clock)){
-		global.rd = 0;//angle
-		global.rs = 0;//speed
-		global.rt = 0;//time
-		global.rotate = true;
-		global.rdir = k_clock ? -1: 1 ;
+	global.r_failed = Director.rotate_collide(k_clock);
+	global.rd = 0;//angle
+	global.rs = 0;//speed
+	global.rt = 0;//time
+	global.rotate = true;
+	global.rdir = k_clock ? -1: 1 ;
+	if(!global.r_failed){
+		Director.record_all(face);
 	}
 }
 

@@ -8,8 +8,10 @@ enum Face{
 
 global.cont = false;
 global.rotate = false;
+global.r_failed = false;
 global.rd = 0;
 global.unaligned = 0;
+
 
 function rotate_collide(dir){
 	var angle = dir ? -90 : 90;
@@ -46,4 +48,20 @@ function level_win(){
     {
 		room_goto_next();
     }
+}
+	
+function record_all(face){
+	if(face == Face.happy){
+		for(var i=0;i<instance_number(Square);i++){
+			var s = instance_find(Square,i);
+			s.record();
+		}
+	}
+}
+
+function undo_all(){
+	for(var i=0;i<instance_number(Square);i++){
+		var s = instance_find(Square,i);
+		s.undo();
+	}
 }

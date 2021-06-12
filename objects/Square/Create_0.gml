@@ -93,6 +93,25 @@ function calc_g(p,s){
 	return r>s/2 ? p+s-r : p-r ;
 }
 
+rec[0][0] = noone;
+function record(){
+	rec[time][0] = x;
+	rec[time][1] = y;
+	rec[time][2] = face;
+	rec[time][3] = image_angle;
+	show_debug_message(image_angle);
+	time++;
+}
+
+function undo(){
+	if(time>0){
+		time--;
+		x    = rec[time][0]
+		y    = rec[time][1];
+		face = rec[time][2]
+		image_angle = rec[time][3];
+	}
+}
 
 
 face =  Face.none
