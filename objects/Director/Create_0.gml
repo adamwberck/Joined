@@ -9,6 +9,8 @@ enum Face{
 global.cont = false;
 global.rotate = false;
 global.rd = 0;
+global.unaligned = 0;
+
 function rotate_collide(dir){
 	var angle = dir ? -90 : 90;
 	var flag = false;
@@ -38,3 +40,10 @@ function rotate_collide(dir){
 	return flag;
 }
 
+function level_win(){
+	//TODO level win
+	if (room_exists(room_next(room)))
+    {
+		room_goto_next();
+    }
+}

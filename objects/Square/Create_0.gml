@@ -77,11 +77,12 @@ function align_to_grid(spd){
 	var gx = calc_g(x,SIZE)
 	var gy = calc_g(y,SIZE)
 	var dir = point_direction(x,y,gx,gy);
-	var len = min(point_distance(x,y,gx,gy),spd);
-	jump_in_dir(len,dir);
-	len = min(point_distance(x,y,gx,gy),spd);
-	if(len==0){
+	var len = point_distance(x,y,gx,gy);
+	if(len<=spd){
 		x = gx; y = gy;
+	}
+	else{
+		jump_in_dir(spd,dir);
 	}
 	image_angle = round(image_angle/90)*90;
 	return len==0;

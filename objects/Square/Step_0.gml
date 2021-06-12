@@ -13,7 +13,7 @@ k_cont_left = keyboard_check_pressed(vk_left);
 k_clock = keyboard_check_pressed(ord("E"));
 k_anti = keyboard_check_pressed(ord("Q"));
 
-if(face==Face.none && !global.rotate){
+if(face==Face.none && global.unaligned == 0){
 	align_to_grid(F_SPD);
 	update_face();
 }
@@ -26,6 +26,7 @@ if(smile and !global.rotate){//WASD
 		vy = k_move_down-k_move_up;
 		if(vx!=0 xor vy!=0){
 			moving = true;
+			global.unaligned++;
 			alarm[0]=(F_SIZE div F_SPD)+1;
 		}
 	}
@@ -62,7 +63,7 @@ if(!global.cont && face==Face.happy && !global.rotate){//ARROW KEYS
 	}
 }
 
-if(face==Face.happy and !moving and !global.cont and !global.rotate and(k_clock xor k_anti)){
+if(face==Face.happy and global.unaligned==0 and !moving and !global.cont and !global.rotate and(k_clock xor k_anti)){
 	global.rx = x; global.ry = y;
 	if(!Director.rotate_collide(k_clock)){
 		global.rd = 0;//angle
@@ -74,6 +75,10 @@ if(face==Face.happy and !moving and !global.cont and !global.rotate and(k_clock 
 }
 
 if(global.rotate and smile){
+	if(!spin){
+		global.unaligned++;
+		spin = true;
+	}
 	var _rs = global.rs*global.rdir;
 	var t_matrix = gen_2x2_array(dcos(_rs),dsin(_rs),//i hat
 		dcos(90 + _rs),dsin(90 + _rs));//j hat*/
@@ -85,4 +90,8 @@ if(global.rotate and smile){
 
 if(!global.rotate and !moving){
 	align_to_grid(F_SPD);
+	if(spin){
+		spin = false;
+		global.unaligned--;
+	}
 }
