@@ -1,2 +1,2 @@
-/// @description fix
+/// @description Cont to false
 global.cont = false;

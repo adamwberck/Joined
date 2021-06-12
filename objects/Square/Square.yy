@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "sSquare",
+    "path": "sprites/sSquare/sSquare.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

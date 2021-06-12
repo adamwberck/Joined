@@ -30,14 +30,15 @@ function update_face(){
 }
 
 
-function collide_check(){
+function collide_check(par){
+	ds_list_add(par,id)
 	if(place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid)){
 		return true;
 	}
 	else{
 		var squ = instance_place(x+vx*F_SPD,y+vy*F_SPD,Square)
-		if(instance_exists(squ)){
-			return squ.collide_check();
+		if(instance_exists(squ) && !ds_list_contains(par,squ)){
+			return squ.collide_check(par);
 		}
 		return false;
 	}
@@ -54,7 +55,6 @@ function set_neighbors(){
 }
 
 function is_connected(par){
-	show_debug_message("checking "+string(id))
 	ds_list_add(par,id)
 	set_neighbors();
 	for(var i=0;i<4;i++){
@@ -79,6 +79,11 @@ function align_to_grid(spd){
 	var dir = point_direction(x,y,gx,gy);
 	var len = min(point_distance(x,y,gx,gy),spd);
 	jump_in_dir(len,dir);
+	len = min(point_distance(x,y,gx,gy),spd);
+	if(len==0){
+		x = gx; y = gy;
+	}
+	image_angle = round(image_angle/90)*90;
 	return len==0;
 }
 
@@ -86,6 +91,7 @@ function calc_g(p,s){
 	var r = p mod s;
 	return r>s/2 ? p+s-r : p-r ;
 }
+
 
 
 face =  Face.none

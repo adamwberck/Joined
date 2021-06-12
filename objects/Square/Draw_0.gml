@@ -7,7 +7,6 @@ switch(face){
 		sprite_index = sSquare;
 		break;
 	case Face.joy:
-	case Face.glad:
 		sprite_index = sJoy;
 		break;
 	case Face.happy:
