@@ -5,27 +5,17 @@ k_move_down = keyboard_check_pressed(ord("S"));
 k_move_right = keyboard_check_pressed(ord("D"));
 k_move_left = keyboard_check_pressed(ord("A"));
 
-var smile = face==Face.happy or face==Face.joy;
-if(!moving){
-	par = ds_list_create();
-	switch(face){
-		case Face.none:
-			//check if connected
-			if(is_connected(par)){
-				face = Face.joy
-			}
-			break;
-		case Face.sad:
-			break;
-		case Face.joy:
-			if(!is_connected(par)){
-				face = Face.none;
-			}
-		case Face.happy:
-			break;
-	}
-	 ds_list_destroy(par);
+k_cont_up = keyboard_check_pressed(vk_up);
+k_cont_down = keyboard_check_pressed(vk_down);
+k_cont_right = keyboard_check_pressed(vk_right);
+k_cont_left = keyboard_check_pressed(vk_left);
+
+if(face==Face.none){
+	update_face();
 }
+
+var smile = face==Face.happy or face==Face.joy;
+
 if(smile){
 	if(!moving){
 		align_to_grid(F_SPD);
@@ -49,4 +39,20 @@ if(smile){
 			y+=vy*F_SPD;
 		}
 	}
+}
+	
+	
+if(!global.cont && face==Face.happy){
+	cx = k_cont_right-k_cont_left;
+	cy = k_cont_down-k_cont_up;
+	if(cx!=0 xor cy!=0){
+		set_neighbors();
+		var n = new_happy();
+		if(instance_exists(n)){
+			face = Face.joy;
+			n.face = Face.happy;
+		}
+	}
+	global.cont = true;
+	alarm[1] = 1;
 }

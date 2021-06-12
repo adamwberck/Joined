@@ -1,6 +1,34 @@
-/// @description Init Values
+/// @description Init Values and Define Functions
 
-neighbors = ds_list_create();
+neighbors = array_create(4,noone);//left right up down
+
+
+function new_happy(){
+	var i = ceil(cx/2)+ceil(cy/2)+2*abs(cy);
+	return neighbors[i];
+}
+
+function update_face(){
+	par = ds_list_create();
+	switch(face){
+		case Face.none:
+			//check if connected
+			if(is_connected(par)){
+				face = Face.joy
+			}
+			break;
+		case Face.sad:
+			break;
+		case Face.joy:
+			if(!is_connected(par)){
+				face = Face.none;
+			}
+		case Face.happy:
+			break;
+	}
+	 ds_list_destroy(par);
+}
+
 
 function collide_check(){
 	if(place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid)){
@@ -15,22 +43,22 @@ function collide_check(){
 	}
 }
 
-function get_neighbors(){
+function set_neighbors(){
 	for(var i=0;i<4;i++){
 		var s = 1//(F_SIZE div 2);
 		var xx = i<2 ?  2*i-1 : 0;
 		var yy = i>1 ?  2*i-5 : 0;
 		var inst = instance_place(x+xx*s,y+yy*s,Square);
-		neighbors[|i] = inst;
+		neighbors[i] = inst;
 	}
 }
 
 function is_connected(par){
 	show_debug_message("checking "+string(id))
 	ds_list_add(par,id)
-	get_neighbors();
+	set_neighbors();
 	for(var i=0;i<4;i++){
-		var n = neighbors[|i];
+		var n = neighbors[i];
 		if(!is_undefined(n) && !ds_list_contains(par,n)){
 			if(instance_exists(n) && n.face == Face.happy){
 				return true;
@@ -62,3 +90,4 @@ function calc_g(p,s){
 
 face =  Face.none
 align_to_grid(1000);
+set_neighbors();

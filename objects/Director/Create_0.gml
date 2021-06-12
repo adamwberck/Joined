@@ -6,3 +6,5 @@ enum Face{
 	glad,
 	joy
 }
+
+global.cont = false;
