@@ -81,10 +81,11 @@ function level_win(){
 	//show text
 	if(!instance_exists(any_key)){
 		any_key = instance_create_layer(room_width/2,room_height/2,"AboveWall",AnyKeyToContinue);
+		play_good();
+
 	}
 	if(keyboard_check_pressed(vk_anykey)){
 		global.ending = true;
-		play_good();
 	}
 }
 	

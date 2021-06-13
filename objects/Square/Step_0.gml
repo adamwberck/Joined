@@ -54,6 +54,11 @@ if(face==Face.none and global.unaligned == 0){
 
 var smile = face==Face.happy or face==Face.joy;
 
+if(smile and !good){
+	good = true;
+	Director.play_good();
+}
+
 if(smile and !global.rotate and !spin){//WASD
 	if(!moving){
 		vx = k_move_right-k_move_left;

@@ -35,6 +35,7 @@
     {"id":{"name":"ExplainSquare","path":"rooms/ExplainSquare/ExplainSquare.yy",},"order":7,},
     {"id":{"name":"sHapToSad","path":"sprites/sHapToSad/sHapToSad.yy",},"order":2,},
     {"id":{"name":"sSleepSquare","path":"sprites/sSleepSquare/sSleepSquare.yy",},"order":5,},
+    {"id":{"name":"Music","path":"sounds/Music/Music.yy",},"order":9,},
     {"id":{"name":"Goal","path":"objects/Goal/Goal.yy",},"order":7,},
     {"id":{"name":"sSad","path":"sprites/sSad/sSad.yy",},"order":2,},
     {"id":{"name":"OnePit","path":"rooms/OnePit/OnePit.yy",},"order":6,},
