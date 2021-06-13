@@ -4,6 +4,7 @@ switch(face){
 		sprite_index = sSleep;
 		break;
 	case Face.sad:
+	case Face.falling:
 		sprite_index = sSad;
 		break;
 	case Face.joy:

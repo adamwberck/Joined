@@ -36,7 +36,7 @@ function update_face(){
 function no_neighbors(){
 	set_neighbors();
 	for(var i=0;i<4;i++){
-		if(neighbors[i]!=noone){
+		if(neighbors[i]!=noone and neighbors[i].face != Face.falling){
 			return false;
 		}
 	}
@@ -50,7 +50,7 @@ function collide_check(par){
 	}
 	else{
 		var squ = instance_place(x+vx*F_SPD,y+vy*F_SPD,Square)
-		if(instance_exists(squ) && !ds_list_contains(par,squ)){
+		if(instance_exists(squ) and squ.face != Face.falling and !ds_list_contains(par,squ)){
 			return squ.collide_check(par);
 		}
 		return false;
@@ -76,7 +76,7 @@ function is_connected(par){
 			if(instance_exists(n) && n.face == Face.happy){
 				return true;
 			}
-			if(instance_exists(n) && n.is_connected(par)){
+			if(instance_exists(n) && n.face!=Face.falling && n.is_connected(par)){
 				return true;
 			}
 		}
@@ -86,19 +86,23 @@ function is_connected(par){
 
 
 function align_to_grid(spd){
+	if(face == Face.falling){
+		return true;
+	}
 	var SIZE = F_SIZE
 	var gx = calc_g(x,SIZE)
 	var gy = calc_g(y,SIZE)
 	var dir = point_direction(x,y,gx,gy);
 	var len = point_distance(x,y,gx,gy);
+	image_angle = round(image_angle/90)*90;
 	if(len<=spd){
 		x = gx; y = gy;
+		return true;
 	}
 	else{
 		jump_in_dir(spd,dir);
+		return false;
 	}
-	image_angle = round(image_angle/90)*90;
-	return len==0;
 }
 
 function calc_g(p,s){
@@ -123,8 +127,14 @@ function undo(){
 		y    = rec[time][1];
 		face = rec[time][2]
 		image_angle = rec[time][3];
+		if(face!=Face.falling){
+			image_xscale = 1;
+			image_yscale = 1;
+			grav = 0;
+		}
 	}
 }
+
 
 
 face =  Face.none

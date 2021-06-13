@@ -3,7 +3,8 @@ enum Face{
 	none,
 	happy,
 	sad,
-	joy
+	joy,
+	falling
 }
 
 global.cont = false;
@@ -44,9 +45,8 @@ function rotate_collide(dir){
 
 function level_win(){
 	//TODO level win
-	if (room_exists(room_next(room)))
-    {
-		room_goto_next();
+	if (room_exists(room_next(room))){
+		//room_goto_next();
     }
 }
 	
