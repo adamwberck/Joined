@@ -116,7 +116,6 @@ function record(){
 	rec[time][1] = y;
 	rec[time][2] = face;
 	rec[time][3] = image_angle;
-	show_debug_message(image_angle);
 	time++;
 }
 
