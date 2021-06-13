@@ -16,10 +16,10 @@ if(!trans && blink<sprite_get_number(face_sprite)){
 
 var o_sprite = face == Face.none || face == Face.sad ? noone : oh_face_check();
 if(o_sprite == noone){
-	draw_sprite_ext(face_sprite,sub_image,x+fx,y+fy,1,1,image_angle,image_blend,image_alpha);
+	draw_sprite_ext(face_sprite,sub_image,x+fx,y+fy,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 }
 else{
-	draw_sprite_ext(o_sprite,oh_sub,x+fx,y+fy,1,1,image_angle,image_blend,image_alpha);
+	draw_sprite_ext(o_sprite,oh_sub,x+fx,y+fy,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 }
 
 frames++;

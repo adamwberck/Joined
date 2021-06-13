@@ -59,7 +59,7 @@
     {"instances":[],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":true,"inheritLayerSettings":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
   ],
   "inheritLayers": true,
-  "creationCodeFile": "",
+  "creationCodeFile": "${project_dir}/rooms/Parent/RoomCreationCode.gml",
   "inheritCode": true,
   "instanceCreationOrder": [
     {"name":"inst_608E4BEE","path":"rooms/TightFit/TightFit.yy",},
