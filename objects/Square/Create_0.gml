@@ -2,6 +2,7 @@
 
 neighbors = array_create(4,noone);//left right up down
 
+alarm[2] = irandom_range(60,60*3);//face blink
 
 function new_happy(){
 	var i = ceil(cx/2)+ceil(cy/2)+2*abs(cy);
