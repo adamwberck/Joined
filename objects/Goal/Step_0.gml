@@ -17,3 +17,6 @@ else{
 	image_blend = 0xFFFFFF00;
 	win = false;
 }
+if(square==noone){
+	col = noone;
+}

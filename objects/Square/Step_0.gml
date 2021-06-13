@@ -21,6 +21,7 @@ if(!moving and !spin and !global.cont and place_meeting(x,y,Pit)){
 		}
 		fall_d = random(1)>.5 ? 1 : -1;
 		face = Face.falling;
+		Director.play_bad();
 		for(var i=0;i<instance_number(Square);i++){
 			var s = instance_find(Square,i);
 			s.update_face();
@@ -67,20 +68,22 @@ if(smile and !global.rotate and !spin){//WASD
 			if(!squ.collide_check(par)){
 				x+=vx*F_SPD;
 				y+=vy*F_SPD;
+				//Director.play_good();
 			}
 			else{
 				oh_face =true;
-				Director.cant_sound();
+				//Director.play_cant();
 			}
 			ds_list_destroy(par);
 		}
 		else if(!place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid)){
 			x+=vx*F_SPD;
 			y+=vy*F_SPD;
+			//Director.play_good();
 		}
 		else{
 			oh_face =true;
-			Director.cant_sound();
+			//Director.play_cant();
 		}
 	}
 }
@@ -112,6 +115,7 @@ if(face==Face.happy and global.unaligned==0 and !moving and !global.cont and !gl
 	global.rdir = k_clock ? -1: 1 ;
 	if(!global.r_failed){
 		Director.record_all(face);
+		//Director.play_good();
 	}
 	else{
 		oh_face =true;

@@ -14,7 +14,7 @@ if(!trans && blink<sprite_get_number(face_sprite)){
 
 //normal draw
 
-var o_sprite = face==Face.none ? noone : oh_face_check();
+var o_sprite = face == Face.none || face == Face.sad ? noone : oh_face_check();
 if(o_sprite == noone){
 	draw_sprite_ext(face_sprite,sub_image,x+fx,y+fy,1,1,image_angle,image_blend,image_alpha);
 }
