@@ -23,12 +23,25 @@ function update_face(){
 			if(!is_connected(par)){
 				face = Face.none;
 			}
+			break;
 		case Face.happy:
+			if(no_neighbors()){
+				face = Face.sad;
+			}
 			break;
 	}
 	 ds_list_destroy(par);
 }
 
+function no_neighbors(){
+	set_neighbors();
+	for(var i=0;i<4;i++){
+		if(neighbors[i]!=noone){
+			return false;
+		}
+	}
+	return true;
+}
 
 function collide_check(par){
 	ds_list_add(par,id)

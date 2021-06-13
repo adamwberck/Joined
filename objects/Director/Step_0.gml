@@ -37,6 +37,6 @@ if(k_reset){
 
 k_undo = keyboard_check_pressed(ord("Z"));
 
-if(k_undo){
+if(k_undo && global.unaligned ==0){
 	undo_all();
 }

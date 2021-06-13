@@ -13,6 +13,9 @@ k_cont_left = keyboard_check_pressed(vk_left);
 k_clock = keyboard_check_pressed(ord("E"));
 k_anti = keyboard_check_pressed(ord("Q"));
 
+if(face==Face.sad){
+	exit;
+}
 
 
 if(face==Face.none && global.unaligned == 0){
@@ -22,11 +25,11 @@ if(face==Face.none && global.unaligned == 0){
 
 var smile = face==Face.happy or face==Face.joy;
 
-if(smile and !global.rotate){//WASD
+if(smile and !global.rotate and !spin){//WASD
 	if(!moving){
 		vx = k_move_right-k_move_left;
 		vy = k_move_down-k_move_up;
-		if(vx!=0 xor vy!=0){
+		if( (vx!=0 xor vy!=0)){
 			moving = true;
 			global.unaligned++;
 			alarm[0]=(F_SIZE div F_SPD)+1;

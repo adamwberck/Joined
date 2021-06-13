@@ -1,10 +1,10 @@
 /// @description Change Face
 switch(face){
 	case Face.none:
-		sprite_index = sSquare;
+		sprite_index = sSleep;
 		break;
 	case Face.sad:
-		sprite_index = sSquare;
+		sprite_index = sSad;
 		break;
 	case Face.joy:
 		sprite_index = sJoy;
