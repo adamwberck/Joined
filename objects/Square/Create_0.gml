@@ -6,7 +6,7 @@ alarm[2] = irandom_range(60,60*3);//face blink
 
 
 function oh_face_check(){
-	if( (moving or spin) and oh_stage==0){
+	if( oh_face  and oh_stage==0){
 		oh_stage++;
 		return face == Face.happy ? sHapToO : sJoyToO;
 	}
@@ -20,7 +20,7 @@ function oh_face_check(){
 		}
 		return s;
 	}
-	if(oh_stage==2 or moving or spin){
+	if(oh_stage==2 or oh_face){
 		oh_stage = 3;
 		alarm[3] = 15;
 		return sOFace;

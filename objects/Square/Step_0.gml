@@ -41,6 +41,7 @@ if(face==Face.sad || face == Face.falling){
 
 
 if(face==Face.none and global.unaligned == 0){
+	oh_face = false;
 	align_to_grid(F_SPD);
 	update_face();
 }
@@ -67,11 +68,19 @@ if(smile and !global.rotate and !spin){//WASD
 				x+=vx*F_SPD;
 				y+=vy*F_SPD;
 			}
+			else{
+				oh_face =true;
+				Director.cant_sound();
+			}
 			ds_list_destroy(par);
 		}
 		else if(!place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid)){
 			x+=vx*F_SPD;
 			y+=vy*F_SPD;
+		}
+		else{
+			oh_face =true;
+			Director.cant_sound();
 		}
 	}
 }
@@ -104,6 +113,10 @@ if(face==Face.happy and global.unaligned==0 and !moving and !global.cont and !gl
 	if(!global.r_failed){
 		Director.record_all(face);
 	}
+	else{
+		oh_face =true;
+		Director.play_cant();
+	}
 }
 
 if(global.rotate and smile){
@@ -124,6 +137,7 @@ if(!global.rotate and !moving){
 	align_to_grid(F_SPD);
 	if(spin){
 		spin = false;
+		oh_face =false;
 		global.unaligned--;
 	}
 }

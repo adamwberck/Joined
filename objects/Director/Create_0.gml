@@ -13,6 +13,39 @@ global.r_failed = false;
 global.rd = 0;
 global.unaligned = 0;
 
+good_sound = ds_list_create();
+bad_sound = ds_list_create();
+cant_sound = ds_list_create();
+ds_list_add(bad_sound,aaaw);
+ds_list_add(bad_sound,aaay);
+ds_list_add(bad_sound,ah_man);
+ds_list_add(good_sound,deeeh);
+ds_list_add(good_sound,eeeh);
+ds_list_add(good_sound,eeem);
+ds_list_add(cant_sound,no);
+ds_list_add(cant_sound,oh);
+ds_list_add(cant_sound,oooo);
+
+randomize();
+
+function play_bad(){
+	audio_play_sound(Director.bad_sound[|irandom(ds_list_size(Director.bad_sound)-1)],1,false);
+}
+
+function play_good(){
+	audio_play_sound(Director.good_sound[|irandom(ds_list_size(Director.good_sound)-1)],1,false);
+}
+
+function play_cant(){
+	audio_play_sound(Director.cant_sound[|irandom(ds_list_size(Director.cant_sound)-1)],1,false);
+}
+
+
+function play_cant(){
+	audio_play_sound(
+			Director.cant_sound[|irandom(ds_list_size(Director.cant_sound)-1)],1,false);
+}
+
 
 function rotate_collide(dir){
 	var angle = dir ? -90 : 90;
