@@ -4,6 +4,100 @@ neighbors = array_create(4,noone);//left right up down
 
 alarm[2] = irandom_range(60,60*3);//face blink
 
+
+function oh_face_check(){
+	if( (moving or spin) and oh_stage==0){
+		oh_stage++;
+		return face == Face.happy ? sHapToO : sJoyToO;
+	}
+	if(oh_stage==1){
+		var s = face == Face.happy ? sHapToO : sJoyToO;
+		oh_sub+=.5;
+		if(oh_sub>=sprite_get_number(s)){
+			oh_stage++;
+			oh_sub = 0;
+			return sOFace;
+		}
+		return s;
+	}
+	if(oh_stage==2 or moving or spin){
+		oh_stage = 3;
+		alarm[3] = 15;
+		return sOFace;
+	}
+	if(oh_stage==3){
+		oh_sub = 0;
+		return sOFace;
+	}
+	if(oh_stage==4){
+		var s = face == Face.happy ? sOToHap : sOToJoy;
+		oh_sub+=.5;
+		if(oh_sub>=sprite_get_number(s)){
+			oh_stage++;
+			oh_sub = 0;
+			return face == Face.happy ? sHap2 : sJoy2;
+		}
+		return s;
+	}
+	if(oh_stage==5){
+		oh_stage =0;
+		return noone;
+	}
+	return noone;
+}
+
+function face_trans(){
+	if(trans && face_sub>=sprite_get_number(face_sprite)-1){
+		switch(face){
+			case Face.none:
+				face_sprite = sSleep2;
+				break;
+			case Face.sad:
+			case Face.falling:
+				face_sprite = sSad2;
+				break;
+			case Face.joy:
+				face_sprite = sJoy2;
+				break;
+			case Face.happy:
+				face_sprite = sHap2;
+				break;
+		}
+		trans = false;
+		face_sub = 0;
+	}
+	if(!trans){
+		var old_face = face_sprite;
+		switch(face){
+			case Face.none:
+				if(face_sprite != sSleep2){
+					face_sprite = sJoyToSleep;
+				}
+				break;
+			case Face.sad:
+			case Face.falling:
+				if(face_sprite != sSad2){
+					face_sprite = sHapToSad;
+				}
+				break;
+			case Face.joy:
+				if(face_sprite != sJoy2){
+					face_sprite = face_sprite==sSleep2 ? sSleepToJoy : sHapToJoy;
+				}
+				break;
+			case Face.happy:
+				if(face_sprite != sHap2){
+					face_sprite = sJoyToHap;
+				}
+				break;
+		}
+		trans = old_face != face_sprite;
+	}
+	else{
+		face_sub+=.5;
+	}
+}
+
 function new_happy(){
 	var i = ceil(cx/2)+ceil(cy/2)+2*abs(cy);
 	return neighbors[i];
