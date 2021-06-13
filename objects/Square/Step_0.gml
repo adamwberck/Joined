@@ -1,5 +1,9 @@
 /// @description Movement
 
+if(global.ending){
+	exit;
+}
+
 var k_move_up = Director.k_move_up // keyboard_check_pressed(ord("W"));
 var k_move_down = Director.k_move_down // keyboard_check_pressed(ord("S"));
 var k_move_right = Director.k_move_right // keyboard_check_pressed(ord("D"));

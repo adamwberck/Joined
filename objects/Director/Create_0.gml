@@ -12,6 +12,7 @@ global.rotate = false;
 global.r_failed = false;
 global.rd = 0;
 global.unaligned = 0;
+global.ending = false;
 
 good_sound = ds_list_create();
 bad_sound = ds_list_create();
@@ -77,10 +78,10 @@ function rotate_collide(dir){
 }
 
 function level_win(){
-	//TODO level win
-	if (room_exists(room_next(room))){
-		//room_goto_next();
-    }
+	//show text
+	if(keyboard_check_pressed(vk_anykey)){
+		global.ending = true;
+	}
 }
 	
 function record_all(face){
