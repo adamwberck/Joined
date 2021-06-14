@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Real",
+    "path": "folders/Objects/Real.yy",
   },
   "resourceVersion": "1.0",
   "name": "sWall",

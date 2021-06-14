@@ -30,7 +30,7 @@
     "path": "folders/Objects/Editor.yy",
   },
   "resourceVersion": "1.0",
-  "name": "EdGrid",
+  "name": "edGrid",
   "tags": [],
   "resourceType": "GMObject",
 }

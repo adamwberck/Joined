@@ -29,8 +29,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "FX",
+    "path": "folders/Objects/FX.yy",
   },
   "resourceVersion": "1.0",
   "name": "RedGlow",

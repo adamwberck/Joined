@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Good Faces",
-    "path": "folders/Objects/Square/Good Faces.yy",
+    "path": "folders/Objects/Real/Square/Good Faces.yy",
   },
   "resourceVersion": "1.0",
   "name": "sOFace",

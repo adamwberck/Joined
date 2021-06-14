@@ -10,7 +10,10 @@
     "path": "sprites/sWall/sWall.yy",
   },
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "parReal",
+    "path": "objects/parReal/parReal.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Real",
+    "path": "folders/Objects/Real.yy",
   },
   "resourceVersion": "1.0",
   "name": "Pit",

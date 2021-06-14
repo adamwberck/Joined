@@ -34,11 +34,12 @@ ds_map_add(str_real_map, "n", noone);
 str_lay_map = ds_map_create();
 
 ds_map_add(str_lay_map, "g", "AboveWall");
-ds_map_add(str_lay_map, "h", "Square");
+ds_map_add(str_lay_map, "h", "Squares");
 ds_map_add(str_lay_map, "p", "Wall");
-ds_map_add(str_lay_map, "s", "Square");
+ds_map_add(str_lay_map, "s", "Squares");
 ds_map_add(str_lay_map, "w", "Wall");
 ds_map_add(str_lay_map, "n", "");
+
 
 function parse_level(){
 	var level_string = "";
@@ -61,8 +62,29 @@ function parse_level(){
 	return compress(level_string);
 }
 
+function start_level(level_string){
+	resume_string = level_string;
+	if( !instance_exists(Director) ){
+		instance_create_layer(0,0,"BehindWall",Director);
+	}
+	instance_deactivate_object(parToolbar);
+	instance_deactivate_object(parEd);
+	instance_deactivate_object(edGrid)
+	object = noone;
+	global.ending = false;
+}
+
+function return_to_editor(){
+	instance_destroy(Director);
+	instance_destroy(parReal);
+	instance_destroy(Text);
+	instance_activate_all();
+	parse_string(resume_string,true);
+}
+
 function parse_string(input, ed){
 	var str = decompress(input);
+	var lst = ds_list_create();
 	try{
 		var i = 1;
 		for(var yy=0;yy<room_height-64;yy+=64){
@@ -71,7 +93,7 @@ function parse_string(input, ed){
 				var obj =  ed ? str_ed_map[?let] : str_real_map[?let];
 				var inst = instance_position(xx,yy,parEd);
 				if(instance_exists(inst)){
-					instance_destroy(inst)
+					ds_list_add(lst,inst);
 				}
 				if(obj!=noone){
 					if(ed){
@@ -91,11 +113,18 @@ function parse_string(input, ed){
 				}
 			}
 		}
-		show_message("Level Loaded");
+		while(ds_list_size(lst)>0){
+			instance_destroy(ds_list_delete2(lst,0));
+		}
+		ds_list_destroy(lst);
 		return true;
 	}
-	catch(ignore) {
-		show_message("Failed to Parse Clipboard Text");
+	catch(error) {
+		error =0;
+		ds_list_destroy(lst);
+		var t = instance_create_layer(room_width/2,room_height/2,"AboveWall",Text);
+		t.text = "Could Not Parse Level";
+		t.alarm[0] = 70;
 		return false;
 	}
 }

@@ -20,6 +20,6 @@ function compress(str){
 			}
 		}
 	}
-	instance_destroy(h_lst);
+	ds_list_destroy(h_lst);
 	return com;
 }

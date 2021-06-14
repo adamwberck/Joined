@@ -16,6 +16,6 @@ function decompress(str){
 			de += let;
 		}
 	}
-	instance_destroy(h_lst);
+	ds_list_destroy(h_lst);
 	return de;
 }

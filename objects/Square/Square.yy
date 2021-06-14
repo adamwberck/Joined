@@ -10,7 +10,10 @@
     "path": "sprites/sSquare/sSquare.yy",
   },
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "parReal",
+    "path": "objects/parReal/parReal.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -60,7 +63,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Square",
-    "path": "folders/Objects/Square.yy",
+    "path": "folders/Objects/Real/Square.yy",
   },
   "resourceVersion": "1.0",
   "name": "Square",

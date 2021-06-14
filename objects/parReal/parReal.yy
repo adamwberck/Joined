@@ -1,16 +1,10 @@
 {
-  "spriteId": {
-    "name": "sWall",
-    "path": "sprites/sWall/sWall.yy",
-  },
+  "spriteId": null,
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "parSolid",
-    "path": "objects/parSolid/parSolid.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -31,7 +25,7 @@
     "path": "folders/Objects/Real.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Wall",
+  "name": "parReal",
   "tags": [],
   "resourceType": "GMObject",
 }

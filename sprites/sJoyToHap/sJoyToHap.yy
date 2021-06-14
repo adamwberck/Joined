@@ -94,7 +94,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Trans Face",
-    "path": "folders/Objects/Square/Trans Face.yy",
+    "path": "folders/Objects/Real/Square/Trans Face.yy",
   },
   "resourceVersion": "1.0",
   "name": "sJoyToHap",

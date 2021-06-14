@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Faces",
-    "path": "folders/Objects/Square/Faces.yy",
+    "path": "folders/Objects/Real/Square/Faces.yy",
   },
   "resourceVersion": "1.0",
   "name": "sSquare",

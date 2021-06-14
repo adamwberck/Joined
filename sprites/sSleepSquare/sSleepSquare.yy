@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Square",
-    "path": "folders/Objects/Square.yy",
+    "path": "folders/Objects/Real/Square.yy",
   },
   "resourceVersion": "1.0",
   "name": "sSleepSquare",

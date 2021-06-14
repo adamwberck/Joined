@@ -32,7 +32,8 @@ if(win and instance_number(Goal)>0){
 k_reset = keyboard_check_pressed(ord("R"))
 if(k_reset){
 	//TODO reset FX
-	room_restart();
+	Square.time=1;
+	undo_all();
 }
 
 k_undo = keyboard_check_pressed(ord("Z"));
@@ -42,17 +43,23 @@ if(k_undo && global.unaligned ==0){
 }
 
 if(global.ending){
-	var lay_id = layer_get_id("Cover");
-	var back_id = layer_background_get_id(lay_id);
-	cover_alpha = approach(cover_alpha,1/60,1);
-	layer_background_alpha(back_id,cover_alpha)
-	var text = instance_find(Text,1);
-	if(cover_alpha>=1 &&( !instance_exists(text) or !text.special) ){		
-		if (room_exists(room_next(room))){
-			room_goto_next();
-		}
-		else{
-			game_restart();
+	if(instance_exists(Editor)){
+		Editor.return_to_editor();
+	}
+	else{
+		var lay_id = layer_get_id("Cover");
+		var back_id = layer_background_get_id(lay_id);
+		cover_alpha = approach(cover_alpha,1/60,1);
+		layer_background_alpha(back_id,cover_alpha)
+		var text = instance_find(Text,1);
+	
+		if(cover_alpha>=1 &&( !instance_exists(text) or !text.special) ){		
+			if (room_exists(room_next(room))){
+				room_goto_next();
+			}
+			else{
+				game_restart();
+			}
 		}
 	}
 }

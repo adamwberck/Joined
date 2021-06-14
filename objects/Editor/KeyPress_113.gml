@@ -1,2 +1,2 @@
-/// @description Parse Clip to ed
+/// @description Edit clipboard level
 parse_string(clipboard_get_text(), true);

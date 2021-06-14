@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sRed",
+    "path": "sprites/sRed/sRed.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -28,8 +31,8 @@
     {"propertyId":{"name":"text","path":"objects/Text/Text.yy",},"objectId":{"name":"Text","path":"objects/Text/Text.yy",},"value":"\"Press Any Key To Continue\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "FX",
+    "path": "folders/Objects/FX.yy",
   },
   "resourceVersion": "1.0",
   "name": "AnyKeyToContinue",
