@@ -14,6 +14,7 @@ for(var yy=32;yy<room_height-64;yy+=64){
 			level_string = level_string + str_map[?noone];
 		}
 	}
+	//level_string = level_string+"\n";
 }
 
 show_debug_message(level_string);
