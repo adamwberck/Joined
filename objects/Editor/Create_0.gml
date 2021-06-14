@@ -78,6 +78,16 @@ function return_to_editor(){
 	instance_destroy(Director);
 	instance_destroy(parReal);
 	instance_destroy(Text);
+	var i=0;
+	while(i<instance_number(parSolid)){
+		var p = instance_find(parSolid,i);
+		if(layer_get_name(p.layer) != "Border" ){
+			instance_destroy(p);
+		}
+		else{
+			i++;
+		}
+	}
 	instance_activate_all();
 	parse_string(resume_string,true);
 }
