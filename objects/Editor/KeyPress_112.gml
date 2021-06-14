@@ -1,6 +1,6 @@
 /// @description Parse Level
-for(var yy=32;yy<room_height-64;yy+=64){
-	for(var xx=32;xx<room_width-64;xx+=64){
+for(var yy=0;yy<room_height-64;yy+=64){
+	for(var xx=0;xx<room_width-64;xx+=64){
 		var inst = instance_position(xx,yy,parEd);
 		if(instance_exists(inst)){
 			level_string = level_string + str_map[?inst.object_index];
@@ -14,8 +14,7 @@ for(var yy=32;yy<room_height-64;yy+=64){
 			level_string = level_string + str_map[?noone];
 		}
 	}
-	//level_string = level_string+"\n";
 }
 
-show_debug_message(level_string);
+show_debug_message(compress(level_string) );
 level_string = "";

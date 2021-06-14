@@ -1,2 +1,2 @@
 /// @description Draw Self and Face
-trigger_draw(x,y,image_angle);
+trigger_draw(x,y,image_angle,image_alpha);

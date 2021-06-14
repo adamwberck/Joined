@@ -5,7 +5,7 @@ function compress(str){
 	var com = "";
 	var count = 0;
 	for(var i=1;i<string_length(str)+1;i++){
-		var same_letter = let==string_char_at(str,i) and count<16;
+		var same_letter = let==string_char_at(str,i) and count<15;
 		if(same_letter){
 			count++;
 		}

@@ -30,3 +30,12 @@ ds_map_add(str_real_map, "p", Pit);
 ds_map_add(str_real_map, "s", Square);
 ds_map_add(str_real_map, "w", Wall);
 ds_map_add(str_real_map, "n", noone);
+
+str_lay_map = ds_map_create();
+
+ds_map_add(str_lay_map, "g", "AboveWall");
+ds_map_add(str_lay_map, "h", "Square");
+ds_map_add(str_lay_map, "p", "Wall");
+ds_map_add(str_lay_map, "s", "Square");
+ds_map_add(str_lay_map, "w", "Wall");
+ds_map_add(str_lay_map, "n", "");
