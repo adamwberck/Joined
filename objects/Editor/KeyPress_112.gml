@@ -1,4 +1,5 @@
 /// @description Parse Level
+var level_string = "";
 for(var yy=0;yy<room_height-64;yy+=64){
 	for(var xx=0;xx<room_width-64;xx+=64){
 		var inst = instance_position(xx,yy,parEd);
@@ -16,5 +17,6 @@ for(var yy=0;yy<room_height-64;yy+=64){
 	}
 }
 
-show_debug_message(compress(level_string) );
-level_string = "";
+//show_debug_message(compress(level_string) );
+clipboard_set_text(compress(level_string));
+show_message("Copied To Clipboard");
