@@ -24,7 +24,7 @@ for(var i=0;i<instance_number(Goal);i++){
 		break;
 	}
 }
-if(win){
+if(win and instance_number(Goal)>0){
 	level_win();
 }
 	

@@ -1,22 +1,3 @@
-/// @description Parse Level
-var level_string = "";
-for(var yy=0;yy<room_height-64;yy+=64){
-	for(var xx=0;xx<room_width-64;xx+=64){
-		var inst = instance_position(xx,yy,parEd);
-		if(instance_exists(inst)){
-			level_string = level_string + str_map[?inst.object_index];
-		
-			if(inst.object_index == edGoal or inst.object_index == edSquare
-				or inst.object_index == edHap){
-				level_string = level_string + string( (inst.image_angle mod 360) div 90);
-			}
-		}
-		else{
-			level_string = level_string + str_map[?noone];
-		}
-	}
-}
-
-//show_debug_message(compress(level_string) );
-clipboard_set_text(compress(level_string));
+/// @description Parse Level to Clipboard
+clipboard_set_text(compress(parse_level()));
 show_message("Copied To Clipboard");
