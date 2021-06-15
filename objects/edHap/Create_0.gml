@@ -8,7 +8,7 @@ function destroy_happy(){
 	for(var i=0;i<instance_number(edHap);i++){
 		var hap = instance_find(edHap,i);
 		if(hap != id){
-			var s = instance_create_depth(hap.x,hap.y,hap.layer,edSquare);
+			var s = instance_create_depth(hap.x,hap.y,hap.depth,edSquare);
 			s.image_angle = hap.image_angle;
 			instance_destroy(hap);
 		}

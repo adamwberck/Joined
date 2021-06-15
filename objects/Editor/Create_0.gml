@@ -65,7 +65,8 @@ function parse_level(){
 function start_level(level_string){
 	resume_string = level_string;
 	if( !instance_exists(Director) ){
-		instance_create_layer(0,0,"BehindWall",Director);
+		var director = instance_create_layer(0,0,"BehindWall",Director);
+		director.cover_alpha =0;
 	}
 	instance_deactivate_object(parToolbar);
 	var i=0;
@@ -99,6 +100,7 @@ function return_to_editor(){
 		}
 	}
 	instance_activate_all();
+	Editor.cover_alpha = 1;
 	parse_string(resume_string,true);
 }
 
@@ -140,11 +142,8 @@ function parse_string(input, ed){
 		return true;
 	}
 	catch(error) {
-		error =0;
+		error = 0;
 		ds_list_destroy(lst);
-		var t = instance_create_layer(room_width/2,room_height/2,"AboveWall",Text);
-		t.text = "Could Not Parse Level";
-		t.alarm[0] = 70;
 		return false;
 	}
 }

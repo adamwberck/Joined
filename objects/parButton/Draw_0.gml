@@ -26,7 +26,7 @@ draw_set_color(c_black);
 draw_roundrect(x1,y1,x2,y2,false);
 var c = c_ltgray;
 if(pressed){
-	c = 0xAAAA00;
+	c = 0x584d47;
 }
 else if(over){
 	c = c_gray;

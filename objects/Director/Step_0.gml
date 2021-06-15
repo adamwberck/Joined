@@ -24,7 +24,7 @@ for(var i=0;i<instance_number(Goal);i++){
 		break;
 	}
 }
-if(win and instance_number(Goal)>0){
+if(win and (instance_number(Goal)>0 or room == Parent) ){
 	level_win();
 }
 	
@@ -43,18 +43,18 @@ if(k_undo && global.unaligned ==0){
 }
 
 if(global.ending){
-	if(instance_exists(Editor)){
-		Editor.return_to_editor();
-	}
-	else{
-		var lay_id = layer_get_id("Cover");
-		var back_id = layer_background_get_id(lay_id);
-		cover_alpha = approach(cover_alpha,1/60,1);
-		layer_background_alpha(back_id,cover_alpha)
-		var text = instance_find(Text,1);
+	var lay_id = layer_get_id("Cover");
+	var back_id = layer_background_get_id(lay_id);
+	cover_alpha = approach(cover_alpha,1/60,1);
+	layer_background_alpha(back_id,cover_alpha)
+	var text = instance_find(Text,1);
 	
-		if(cover_alpha>=1 &&( !instance_exists(text) or !text.special) ){		
-			if (room_exists(room_next(room))){
+	if(cover_alpha>=1 &&( !instance_exists(text) or !text.special) ){
+		if(instance_exists(Editor)){
+			Editor.return_to_editor();
+		}
+		else{
+			if (room_exists(room_next(room)) and room_next(room) !=rmEditor){
 				room_goto_next();
 			}
 			else{
@@ -69,7 +69,7 @@ else{
 	cover_alpha = approach(cover_alpha,1/60,0);
 	layer_background_alpha(back_id,cover_alpha)
 	if(cover_alpha>=1){		
-		if (room_exists(room_next(room))){
+		if (room_exists(room_next(room)) ){
 			room_goto_next();
 		}
 	}
