@@ -43,8 +43,8 @@ ds_map_add(str_lay_map, "n", "");
 
 function parse_level(){
 	var level_string = "";
-	for(var yy=0;yy<room_height-64;yy+=64){
-		for(var xx=0;xx<room_width-64;xx+=64){
+	for(var yy=64;yy<room_height-64;yy+=64){
+		for(var xx=64;xx<room_width-64;xx+=64){
 			var inst = instance_position(xx,yy,parEd);
 			if(instance_exists(inst)){
 				level_string = level_string + str_map[?inst.object_index];
@@ -109,8 +109,8 @@ function parse_string(input, ed){
 	var lst = ds_list_create();
 	try{
 		var i = 1;
-		for(var yy=0;yy<room_height-64;yy+=64){
-			for(var xx=0;xx<room_width-64;xx+=64){
+		for(var yy=64;yy<room_height-64;yy+=64){
+			for(var xx=64;xx<room_width-64;xx+=64){
 				var let = string_char_at(str,i++);
 				var obj =  ed ? str_ed_map[?let] : str_real_map[?let];
 				var inst = instance_position(xx,yy,parEd);

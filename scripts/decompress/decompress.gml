@@ -1,15 +1,23 @@
 function decompress(str){
+	show_debug_message(str);
 	var h_lst = ds_list_create();
 	special_hex(h_lst);
 	var p = "";
 	var de = "";
-	for(var i=1;i<string_length(str)+1;i++){
+	var hex = "";
+	for(var i = 1; i < string_length(str) + 2; i++){
 		var let = string_char_at(str,i);
 		if(ds_list_contains(h_lst,let)){
-			var r = ds_list_find_index(h_lst,let);
-			repeat(r-1){
+			hex += let;
+		}
+		else if(hex != ""){
+			var _real = hex_to_real(hex);
+			repeat(_real-1){
 				de+=p;
 			}
+			hex = "";
+			p = let;
+			de += let;
 		}
 		else{
 			p = let;
@@ -17,5 +25,6 @@ function decompress(str){
 		}
 	}
 	ds_list_destroy(h_lst);
+	show_debug_message(de);
 	return de;
 }
