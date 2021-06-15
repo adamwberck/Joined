@@ -32,7 +32,7 @@ if(win and instance_number(Goal)>0){
 k_reset = keyboard_check_pressed(ord("R"))
 if(k_reset){
 	//TODO reset FX
-	Square.time=1;
+	if( instance_exists(Square) ) then Square.time=1;
 	undo_all();
 }
 

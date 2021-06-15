@@ -1,4 +1,4 @@
-/// @description set maps
+/// @description Init Map and functions
 tb_map = ds_map_create();
 ds_map_add(tb_map, tbGoal,edGoal);
 ds_map_add(tb_map, tbHap,edHap);
@@ -68,8 +68,18 @@ function start_level(level_string){
 		instance_create_layer(0,0,"BehindWall",Director);
 	}
 	instance_deactivate_object(parToolbar);
+	var i=0;
+	while(i<instance_number(parButton)){
+		var p = instance_find(parButton,i);
+		if(p.object_index != BackButton){
+			instance_deactivate_object(p);
+		}
+		else{
+			i++;
+		}
+	}
 	instance_deactivate_object(parEd);
-	instance_deactivate_object(edGrid)
+	instance_deactivate_object(edGrid);
 	object = noone;
 	global.ending = false;
 }

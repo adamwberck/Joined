@@ -1,5 +1,5 @@
 /// @description Create
-if(object != noone and !fade_in){
+if(object != noone and !fade_in and !fade_in_b){
 	var xx = round(mouse_x/64)*64;
 	var yy = round(mouse_y/64)*64;
 	if(xx>32 and xx <room_width-32 and yy>32 and yy<room_height-32){
