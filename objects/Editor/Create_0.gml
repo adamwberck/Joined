@@ -119,14 +119,12 @@ function parse_string(input, ed){
 				}
 				if(obj!=noone){
 					if(ed){
-						show_debug_message("e "+string(yy));
 						var n = instance_create_layer(xx,yy,"Editor",obj);
 						if(obj == edGoal or obj == edSquare or obj == edHap){
 							n.image_angle = real(string_char_at(str,i++))*90;
 						}
 					}
 					else{
-						show_debug_message("r "+string(yy));
 						var lay = str_lay_map[?let];
 						var n = instance_create_layer(xx,yy,lay,obj);
 						if(obj == Goal or obj == Square){

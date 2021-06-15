@@ -1,5 +1,4 @@
 function compress(str){
-	show_debug_message(str)
 	var h_lst = ds_list_create();
 	special_hex(h_lst);
 	var let = "";
@@ -23,6 +22,5 @@ function compress(str){
 		}
 	}
 	ds_list_destroy(h_lst);
-	show_debug_message(com);
 	return com;
 }
