@@ -43,7 +43,7 @@ ds_map_add(str_lay_map, "n", "");
 
 function parse_level(){
 	var level_string = "";
-	for(var yy=64;yy<room_height-64;yy+=64){
+	for(var yy=64;yy<room_height;yy+=64){
 		for(var xx=64;xx<room_width-64;xx+=64){
 			var inst = instance_position(xx,yy,parEd);
 			if(instance_exists(inst)){
@@ -109,7 +109,7 @@ function parse_string(input, ed){
 	var lst = ds_list_create();
 	try{
 		var i = 1;
-		for(var yy=64;yy<room_height-64;yy+=64){
+		for(var yy=64;yy<room_height  ;yy+=64){
 			for(var xx=64;xx<room_width-64;xx+=64){
 				var let = string_char_at(str,i++);
 				var obj =  ed ? str_ed_map[?let] : str_real_map[?let];
@@ -119,12 +119,14 @@ function parse_string(input, ed){
 				}
 				if(obj!=noone){
 					if(ed){
+						show_debug_message("e "+string(yy));
 						var n = instance_create_layer(xx,yy,"Editor",obj);
 						if(obj == edGoal or obj == edSquare or obj == edHap){
 							n.image_angle = real(string_char_at(str,i++))*90;
 						}
 					}
 					else{
+						show_debug_message("r "+string(yy));
 						var lay = str_lay_map[?let];
 						var n = instance_create_layer(xx,yy,lay,obj);
 						if(obj == Goal or obj == Square){
