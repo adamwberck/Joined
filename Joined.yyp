@@ -1,9 +1,9 @@
 {
   "resources": [
     {"id":{"name":"Square","path":"objects/Square/Square.yy",},"order":1,},
+    {"id":{"name":"runtime_draw","path":"scripts/runtime_draw/runtime_draw.yy",},"order":3,},
     {"id":{"name":"CopyButton","path":"objects/CopyButton/CopyButton.yy",},"order":3,},
     {"id":{"name":"sSquare","path":"sprites/sSquare/sSquare.yy",},"order":5,},
-    {"id":{"name":"room0","path":"rooms/room0/room0.yy",},"order":10,},
     {"id":{"name":"parSolid","path":"objects/parSolid/parSolid.yy",},"order":2,},
     {"id":{"name":"position_in_rectangle","path":"scripts/position_in_rectangle/position_in_rectangle.yy",},"order":5,},
     {"id":{"name":"sHap2","path":"sprites/sHap2/sHap2.yy",},"order":1,},
@@ -137,7 +137,6 @@
     {"roomId":{"name":"MindTheGap","path":"rooms/MindTheGap/MindTheGap.yy",},},
     {"roomId":{"name":"Parent","path":"rooms/Parent/Parent.yy",},},
     {"roomId":{"name":"rmEditor","path":"rooms/rmEditor/rmEditor.yy",},},
-    {"roomId":{"name":"room0","path":"rooms/room0/room0.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

@@ -1,5 +1,4 @@
 {
-  "name": "tleWall",
   "spriteId": {
     "name": "sWallTile",
     "path": "sprites/sWallTile/sWallTile.yy",
@@ -141,6 +140,7 @@
     "path": "folders/Objects/Real/Env/Wall.yy",
   },
   "resourceVersion": "1.0",
+  "name": "tleWall",
   "tags": [],
   "resourceType": "GMTileSet",
 }

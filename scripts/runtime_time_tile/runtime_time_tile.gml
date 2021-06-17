@@ -7,5 +7,5 @@ function runtime_time_tile(adj_map,obj){
 	for(var i = 0; i < 8; i++){
 		b += adj_wall[i]*power(2,i);
 	}
-	return adj_map[?b];
+	return adj_map[?b]-1;
 }
