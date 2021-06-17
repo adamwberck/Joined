@@ -14,7 +14,8 @@ if(special){
 	global.ending = true;
 	if(keyboard_check_pressed(vk_anykey)){
 		global.ending = false;
-		instance_destroy();
+		alarm[0]=1;
+		special = false;
 	}
 }
 if(image_alpha==0){

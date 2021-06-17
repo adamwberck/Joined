@@ -1,8 +1,8 @@
 /// @description Init Values and Define Functions
 
-neighbors = array_create(4,noone);//left right up down
+neighbors = array_create(4, noone);//left right up down
 
-alarm[2] = irandom_range(60,60*3);//face blink
+alarm[2] = irandom_range(60, 60*3);//face blink
 
 
 function oh_face_check(){
@@ -22,7 +22,7 @@ function oh_face_check(){
 	}
 	if(oh_stage==2 or oh_face){
 		oh_stage = 3;
-		alarm[3] = 15;
+		alarm[3] = 45;
 		return sOFace;
 	}
 	if(oh_stage==3){
@@ -47,7 +47,7 @@ function oh_face_check(){
 }
 
 function face_trans(){
-	if(trans && face_sub>=sprite_get_number(face_sprite)-1){
+	if(trans and face_sub>=sprite_get_number(face_sprite)-1){
 		switch(face){
 			case Face.none:
 				face_sprite = sSleep2;
@@ -77,7 +77,7 @@ function face_trans(){
 			case Face.sad:
 			case Face.falling:
 				if(face_sprite != sSad2){
-					face_sprite = sHapToSad;
+					face_sprite = face_sprite==sHappy ? sHapToSad : sJoyToSad;
 				}
 				break;
 			case Face.joy:
@@ -139,13 +139,13 @@ function no_neighbors(){
 }
 
 function collide_check(par){
-	ds_list_add(par,id)
-	if(place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid)){
+	ds_list_add(par, id)
+	if(place_meeting(x+vx*F_SPD, y+vy*F_SPD, parSolid)){
 		return true;
 	}
 	else{
-		var squ = instance_place(x+vx*F_SPD,y+vy*F_SPD,Square)
-		if(instance_exists(squ) and squ.face != Face.falling and !ds_list_contains(par,squ)){
+		var squ = instance_place(x+vx*F_SPD, y+vy*F_SPD, Square)
+		if(instance_exists(squ) and squ.face != Face.falling and !ds_list_contains(par, squ)){
 			return squ.collide_check(par);
 		}
 		return false;
@@ -157,21 +157,21 @@ function set_neighbors(){
 		var s = 1//(F_SIZE div 2);
 		var xx = i<2 ?  2*i-1 : 0;
 		var yy = i>1 ?  2*i-5 : 0;
-		var inst = instance_place(x+xx*s,y+yy*s,Square);
+		var inst = instance_place(x+xx*s, y+yy*s, Square);
 		neighbors[i] = inst;
 	}
 }
 
 function is_connected(par){
-	ds_list_add(par,id)
+	ds_list_add(par, id)
 	set_neighbors();
 	for(var i=0;i<4;i++){
 		var n = neighbors[i];
-		if(!is_undefined(n) && !ds_list_contains(par,n)){
-			if(instance_exists(n) && n.face == Face.happy){
+		if(!is_undefined(n) and !ds_list_contains(par, n)){
+			if(instance_exists(n) and n.face == Face.happy){
 				return true;
 			}
-			if(instance_exists(n) && n.face!=Face.falling && n.is_connected(par)){
+			if(instance_exists(n) and n.face!=Face.falling and n.is_connected(par)){
 				return true;
 			}
 		}
@@ -185,22 +185,22 @@ function align_to_grid(spd){
 		return true;
 	}
 	var SIZE = F_SIZE
-	var gx = calc_g(x,SIZE)
-	var gy = calc_g(y,SIZE)
-	var dir = point_direction(x,y,gx,gy);
-	var len = point_distance(x,y,gx,gy);
+	var gx = calc_g(x, SIZE)
+	var gy = calc_g(y, SIZE)
+	var dir = point_direction(x, y, gx, gy);
+	var len = point_distance(x, y, gx, gy);
 	image_angle = round(image_angle/90)*90;
 	if(len<=spd){
 		x = gx; y = gy;
 		return true;
 	}
 	else{
-		jump_in_dir(spd,dir);
+		jump_in_dir(spd, dir);
 		return false;
 	}
 }
 
-function calc_g(p,s){
+function calc_g(p, s){
 	var r = p mod s;
 	return r>s/2 ? p+s-r : p-r ;
 }
@@ -213,15 +213,14 @@ function record(){
 	rec[time][3] = image_angle;
 	time++;
 }
-
 function undo(){
-	if(time>0){
+	if(time > 0){
 		time--;
-		x    = rec[time][0]
+		x    = rec[time][0];
 		y    = rec[time][1];
-		face = rec[time][2]
+		face = rec[time][2];
 		image_angle = rec[time][3];
-		if(face!=Face.falling){
+		if(face != Face.falling){
 			image_xscale = 1;
 			image_yscale = 1;
 			grav = 0;

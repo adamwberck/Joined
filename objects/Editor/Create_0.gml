@@ -100,13 +100,16 @@ function return_to_editor(){
 		}
 	}
 	instance_activate_all();
-	Editor.cover_alpha = 1;
+	if(global.ending){
+		Editor.cover_alpha = 1;
+	}
 	parse_string(resume_string,true);
 }
 
 function parse_string(input, ed){
 	var str = decompress(input);
-	var lst = ds_list_create();
+	var des_lst = ds_list_create();
+	var crt_lst = ds_list_create();
 	try{
 		var i = 1;
 		for(var yy=64;yy<room_height  ;yy+=64){
@@ -115,11 +118,12 @@ function parse_string(input, ed){
 				var obj =  ed ? str_ed_map[?let] : str_real_map[?let];
 				var inst = instance_position(xx,yy,parEd);
 				if(instance_exists(inst)){
-					ds_list_add(lst,inst);
+					ds_list_add(des_lst,inst);
 				}
 				if(obj!=noone){
 					if(ed){
 						var n = instance_create_layer(xx,yy,"Editor",obj);
+						ds_list_add(crt_lst,n);
 						if(obj == edGoal or obj == edSquare or obj == edHap){
 							n.image_angle = real(string_char_at(str,i++))*90;
 						}
@@ -127,6 +131,7 @@ function parse_string(input, ed){
 					else{
 						var lay = str_lay_map[?let];
 						var n = instance_create_layer(xx,yy,lay,obj);
+						ds_list_add(crt_lst,n);
 						if(obj == Goal or obj == Square){
 							n.face = let=="h" ? Face.happy : Face.none;
 							n.image_angle = real(string_char_at(str,i++))*90;
@@ -135,15 +140,20 @@ function parse_string(input, ed){
 				}
 			}
 		}
-		while(ds_list_size(lst)>0){
-			instance_destroy(ds_list_delete2(lst,0));
+		while(ds_list_size(des_lst)>0){
+			instance_destroy(ds_list_delete2(des_lst,0));
 		}
-		ds_list_destroy(lst);
+		ds_list_destroy(des_lst);
+		ds_list_destroy(crt_lst);
 		return true;
 	}
 	catch(error) {
 		error = 0;
-		ds_list_destroy(lst);
+		while(ds_list_size(crt_lst)>0){
+			instance_destroy(ds_list_delete2(crt_lst,0));
+		}
+		ds_list_destroy(des_lst);
+		ds_list_destroy(crt_lst);
 		return false;
 	}
 }

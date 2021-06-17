@@ -30,15 +30,15 @@ if(win and (instance_number(Goal)>0 or room == Parent) ){
 	
 
 k_reset = keyboard_check_pressed(ord("R"))
-if(k_reset){
+if(k_reset and !global.rotate and global.unaligned ==0){
 	//TODO reset FX
-	if( instance_exists(Square) ) then Square.time=1;
+	if( instance_exists(Square) ) then Square.time = min(Square.time,1);
 	undo_all();
 }
 
 k_undo = keyboard_check_pressed(ord("Z"));
 
-if(k_undo && global.unaligned ==0){
+if(k_undo and global.unaligned ==0){
 	undo_all();
 }
 
@@ -47,9 +47,9 @@ if(global.ending){
 	var back_id = layer_background_get_id(lay_id);
 	cover_alpha = approach(cover_alpha,1/60,1);
 	layer_background_alpha(back_id,cover_alpha)
-	var text = instance_find(Text,1);
+	var text = inst_title;
 	
-	if(cover_alpha>=1 &&( !instance_exists(text) or !text.special) ){
+	if(cover_alpha>=1 and ( !instance_exists(text) or !text.special) ){
 		if(instance_exists(Editor)){
 			Editor.return_to_editor();
 		}

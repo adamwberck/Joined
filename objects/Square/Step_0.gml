@@ -18,7 +18,7 @@ var k_clock = Director.k_clock // keyboard_check_pressed(ord("E"));
 var k_anti = Director.k_anti // keyboard_check_pressed(ord("Q"));
 
 //Pit
-if(!moving and !spin and !global.cont and place_meeting(x,y,Pit)){
+if(!moving and !spin and !global.cont and place_meeting(x, y, Pit)){
 	if(face != Face.falling){
 		if(face==Face.happy){
 			Square.face = Face.none;
@@ -39,7 +39,7 @@ if(!moving and !spin and !global.cont and place_meeting(x,y,Pit)){
 
 
 
-if(face==Face.sad || face == Face.falling){
+if(face==Face.sad or face == Face.falling){
 	align_to_grid(F_SPD);
 	exit;
 }
@@ -60,7 +60,7 @@ if(smile and !good){
 }
 
 if(smile and !global.rotate and !spin){//WASD
-	if(!moving){
+	if(!moving){//not moving move
 		vx = k_move_right-k_move_left;
 		vy = k_move_down-k_move_up;
 		if( (vx!=0 xor vy!=0)){
@@ -70,35 +70,25 @@ if(smile and !global.rotate and !spin){//WASD
 			Director.record_all(face);
 		}
 	}
-	else{
+	else{//move if you don't collide with square or solid
+		var sol = place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid);
 		var squ = instance_place(x+vx*F_SPD,y+vy*F_SPD,Square)
-		if(instance_exists(squ) && squ.face != Face.falling){
+		var ies = instance_exists(squ);
+		if( !sol or (ies and squ.face != Face.falling) ){
 			var par = ds_list_create();
-			if(!squ.collide_check(par)){
+			if( (!sol and !ies) or !squ.collide_check(par)){
 				x+=vx*F_SPD;
 				y+=vy*F_SPD;
-				//Director.play_good();
-			}
-			else{
-				oh_face =true;
-				//Director.play_cant();
+				oh_face = face!=Face.happy;
+				//Director.play_good(.05);
 			}
 			ds_list_destroy(par);
-		}
-		else if(!place_meeting(x+vx*F_SPD,y+vy*F_SPD,parSolid)){
-			x+=vx*F_SPD;
-			y+=vy*F_SPD;
-			//Director.play_good();
-		}
-		else{
-			oh_face =true;
-			//Director.play_cant();
 		}
 	}
 }
 	
 	
-if(!global.cont && face==Face.happy && !global.rotate){//ARROW KEYS
+if(!global.cont and face==Face.happy and !global.rotate){//ARROW KEYS
 	cx = k_cont_right-k_cont_left;
 	cy = k_cont_down-k_cont_up;
 	if(cx!=0 xor cy!=0){

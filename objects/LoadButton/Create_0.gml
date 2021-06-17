@@ -1,4 +1,7 @@
 /// @description action
+event_inherited();
+
+
 function action(){
 	if(confirmed){
 		var loaded = Editor.parse_string(clipboard_get_text(), true);

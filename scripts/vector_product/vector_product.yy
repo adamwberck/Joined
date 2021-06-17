@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Vector",
+    "path": "folders/Scripts/Vector.yy",
   },
   "resourceVersion": "1.0",
   "name": "vector_product",

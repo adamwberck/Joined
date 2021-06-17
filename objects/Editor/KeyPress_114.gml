@@ -1,2 +1,4 @@
 /// @description Goto Editor
-game_restart();
+if(!instance_exists(Director)){
+	game_restart();
+}
