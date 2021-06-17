@@ -48,24 +48,24 @@ function gen_runtime_map(adj_map){
 	adj_map[? 0x2A ] = 45; //00101010 
 	adj_map[? 0x2B ] = 44; //00101011 
 	//rb r  rt b t lb l lt 
-	adj_map[? 0x2C ] = 48; //00101100 
+	adj_map[? 0x2C ] = 51; //00101100 
 	adj_map[? 0x2D ] = 51; //00101101 
 	adj_map[? 0x2E ] = 45; //00101110
 	adj_map[? 0x2F ] = 44; //00101111
 	adj_map[? 0x30 ] = 49; //00110000
 	adj_map[? 0x31 ] = 49; //00110001
-	adj_map[? 0x32 ] = 39; //00110010
+	adj_map[? 0x32 ] = 43; //00110010
 	adj_map[? 0x33 ] = 43; //00110011
-	adj_map[? 0x34 ] = 53; //00110100
-	adj_map[? 0x35 ] = 47; //00110101
+	adj_map[? 0x34 ] = 49; //00110100
+	adj_map[? 0x35 ] = 49; //00110101
 	adj_map[? 0x36 ] = 42; //00110110
 	adj_map[? 0x37 ] = 42; //00110111
 	adj_map[? 0x38 ] = 38; //00111000
-	adj_map[? 0x39 ] = 41; //00111001
-	adj_map[? 0x3A ] = 27; //00111010
+	adj_map[? 0x39 ] = 38; //00111001
+	adj_map[? 0x3A ] = 32; //00111010
 	adj_map[? 0x3B ] = 30; //00111011
 	adj_map[? 0x3C ] = 38; //00111100
-	adj_map[? 0x3D ] = 07; //00111101
+	adj_map[? 0x3D ] = 38; //00111101
 	adj_map[? 0x3E ] = 31; //00111110
 	adj_map[? 0x3F ] = 29; //00111111
 
@@ -84,9 +84,9 @@ function gen_runtime_map(adj_map){
 	adj_map[? 0x4A ] = 36; //01001010
 	adj_map[? 0x4B ] = 35; //01001011
 	adj_map[? 0x4C ] = 48; //01001100
-	adj_map[? 0x4D ] = 33; //01001101
+	adj_map[? 0x4D ] = 48; //01001101
 	adj_map[? 0x4E ] = 36; //01001110
-	adj_map[? 0x4F ] = 44; //01001111
+	adj_map[? 0x4F ] = 35; //01001111
 	//rb r  rt b t lb l lt 
 	adj_map[? 0x50 ] = 41; //01010000 b
 	adj_map[? 0x51 ] = 41; //01010001
@@ -108,7 +108,7 @@ function gen_runtime_map(adj_map){
 	adj_map[? 0x61 ] = 50; //01100001
 	adj_map[? 0x62 ] = 39; //01100010 
 	adj_map[? 0x63 ] = 39; //01100011 
-	adj_map[? 0x64 ] = 53; //01100100 
+	adj_map[? 0x64 ] = 50; //01100100 
 	adj_map[? 0x65 ] = 50; //01100101 
 	adj_map[? 0x66 ] = 39; //01100110 
 	adj_map[? 0x67 ] = 39; //01100111 
@@ -152,7 +152,7 @@ function gen_runtime_map(adj_map){
 	adj_map[? 0x8A ] = 45; //10001010
 	adj_map[? 0x8B ] = 44; //10001011
 	adj_map[? 0x8C ] = 51; //10001100
-	adj_map[? 0x8D ] = 44; //10001101
+	adj_map[? 0x8D ] = 51; //10001101
 	adj_map[? 0x8E ] = 45; //10001110
 	adj_map[? 0x8F ] = 44; //10001111
 	//rb r  rt b t lb l lt 
@@ -174,7 +174,7 @@ function gen_runtime_map(adj_map){
 	adj_map[? 0x9F ] = 29; //10011111
 	adj_map[? 0xA0 ] = 53; //10100000 r
 	adj_map[? 0xA1 ] = 53; //10100001
-	adj_map[? 0xA2 ] = 39; //10100010 
+	adj_map[? 0xA2 ] = 52; //10100010 
 	adj_map[? 0xA3 ] = 52; //10100011 
 	adj_map[? 0xA4 ] = 53; //10100100 
 	adj_map[? 0xA5 ] = 53; //10100101 
@@ -187,11 +187,11 @@ function gen_runtime_map(adj_map){
 	//rb r  rt b t lb l lt 
 	adj_map[? 0xAC ] = 51; //10101100 
 	adj_map[? 0xAD ] = 51; //10101101 
-	adj_map[? 0xAE ] = 41; //10101110
-	adj_map[? 0xAF ] = 05; //10101111
+	adj_map[? 0xAE ] = 45; //10101110
+	adj_map[? 0xAF ] = 44; //10101111
 	adj_map[? 0xB0 ] = 49; //10110000
-	adj_map[? 0xB1 ] = 53; //10110001
-	adj_map[? 0xB2 ] = 39; //10110010
+	adj_map[? 0xB1 ] = 49; //10110001
+	adj_map[? 0xB2 ] = 43; //10110010
 	adj_map[? 0xB3 ] = 43; //10110011
 	adj_map[? 0xB4 ] = 49; //10110100
 	adj_map[? 0xB5 ] = 47; //10110101
@@ -199,10 +199,10 @@ function gen_runtime_map(adj_map){
 	adj_map[? 0xB7 ] = 42; //10110111
 	adj_map[? 0xB8 ] = 38; //10111000
 	adj_map[? 0xB9 ] = 38; //10111001
-	adj_map[? 0xBA ] = 30; //10111010
+	adj_map[? 0xBA ] = 32; //10111010
 	adj_map[? 0xBB ] = 30; //10111011
 	adj_map[? 0xBC ] = 38; //10111100
-	adj_map[? 0xBD ] = 07; //10111101
+	adj_map[? 0xBD ] = 38; //10111101
 	adj_map[? 0xBE ] = 31; //10111110
 	adj_map[? 0xBF ] = 29; //10111111
 
@@ -219,11 +219,11 @@ function gen_runtime_map(adj_map){
 	adj_map[? 0xC8 ] = 48; //11001000 t
 	adj_map[? 0xC9 ] = 48; //11001001
 	adj_map[? 0xCA ] = 36; //11001010
-	adj_map[? 0xCB ] = 33; //11001011
+	adj_map[? 0xCB ] = 35; //11001011
 	adj_map[? 0xCC ] = 48; //11001100
 	adj_map[? 0xCD ] = 48; //11001101
 	adj_map[? 0xCE ] = 36; //11001110
-	adj_map[? 0xCF ] = 33; //11001111
+	adj_map[? 0xCF ] = 35; //11001111
 	//rb r  rt b t lb l lt 
 	adj_map[? 0xD0 ] = 40; //11010000 b
 	adj_map[? 0xD1 ] = 40; //11010001
@@ -242,10 +242,10 @@ function gen_runtime_map(adj_map){
 	adj_map[? 0xDE ] = 05; //11011110
 	adj_map[? 0xDF ] = 04; //11011111
 	adj_map[? 0xE0 ] = 50; //11100000 r
-	adj_map[? 0xE1 ] = 51; //11100001
+	adj_map[? 0xE1 ] = 50; //11100001
 	adj_map[? 0xE2 ] = 39; //11100010 
 	adj_map[? 0xE3 ] = 39; //11100011 
-	adj_map[? 0xE4 ] = 53; //11100100 
+	adj_map[? 0xE4 ] = 50; //11100100 
 	adj_map[? 0xE5 ] = 50; //11100101 
 	adj_map[? 0xE6 ] = 39; //11100110 
 	adj_map[? 0xE7 ] = 39; //11100111 
@@ -267,7 +267,7 @@ function gen_runtime_map(adj_map){
 	adj_map[? 0xF6 ] = 24; //11110110
 	adj_map[? 0xF7 ] = 24; //11110111
 	adj_map[? 0xF8 ] = 20; //11111000
-	adj_map[? 0xF9 ] = 41; //11111001
+	adj_map[? 0xF9 ] = 20; //11111001
 	adj_map[? 0xFA ] = 12; //11111010
 	adj_map[? 0xFB ] = 11; //11111011
 	adj_map[? 0xFC ] = 20; //11111100
