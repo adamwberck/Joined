@@ -1,11 +1,11 @@
 {
   "option_windows_display_name": "Joyful Connections",
   "option_windows_executable_name": "Joyful Connections.exe",
-  "option_windows_version": "1.0.0.0",
+  "option_windows_version": "1.1.0.0",
   "option_windows_company_info": "",
   "option_windows_product_info": "",
   "option_windows_copyright_info": "",
-  "option_windows_description_info": "Puzzle Game for the Ages",
+  "option_windows_description_info": "Puzzle Game",
   "option_windows_display_cursor": true,
   "option_windows_icon": "icons/icon.ico",
   "option_windows_save_location": 0,
