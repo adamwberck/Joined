@@ -35,6 +35,7 @@
             {"propertyId":{"name":"good","path":"objects/Square/Square.yy",},"objectId":{"name":"Square","path":"objects/Square/Square.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"Square","path":"objects/Square/Square.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":{"name":"Parent","path":"rooms/Parent/Parent.yy",},"frozen":false,"ignore":false,"inheritItemSettings":false,"x":640.0,"y":320.0,"resourceVersion":"1.0","name":"inst_5433C0E5","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"Square","path":"objects/Square/Square.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":{"name":"Parent","path":"rooms/Parent/Parent.yy",},"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1088.0,"y":384.0,"resourceVersion":"1.0","name":"inst_17D3FD8B","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"Square","path":"objects/Square/Square.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":384.0,"y":384.0,"resourceVersion":"1.0","name":"inst_60661F41","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"gridX":64,"gridY":64,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Squares","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":null,"x":0,"y":0,"tiles":{"SerialiseWidth":0,"SerialiseHeight":0,"TileSerialiseData":[
 ],},"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"WallTile","tags":[],"resourceType":"GMRTileLayer",},
@@ -156,6 +157,7 @@
     {"name":"inst_247980E1","path":"rooms/TightFit/TightFit.yy",},
     {"name":"inst_2776B6EF","path":"rooms/TightFit/TightFit.yy",},
     {"name":"inst_57FEB23F","path":"rooms/TightFit/TightFit.yy",},
+    {"name":"inst_60661F41","path":"rooms/TightFit/TightFit.yy",},
   ],
   "inheritCreationOrder": true,
   "sequenceId": null,

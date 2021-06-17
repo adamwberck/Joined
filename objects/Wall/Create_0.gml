@@ -1,4 +1,11 @@
 /// @description Check Adj
-map = ds_map_create();
-gen_runtime_map(map);
-sub = runtime_time_tile(map,object_index);
+function set_tile_sub(){
+	sub = runtime_time_tile(Director.tile_map,object_index);
+}
+
+try{
+	set_tile_sub();
+}
+catch(ignore){
+	ignore = 0;
+}

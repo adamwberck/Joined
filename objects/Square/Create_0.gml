@@ -4,6 +4,10 @@ neighbors = array_create(4, noone);//left right up down
 
 alarm[2] = irandom_range(60, 60*3);//face blink
 
+facing = chance(.5) ? 1 : -1;
+
+depthstart = depth;
+depthsleep = depth+1;
 
 function oh_face_check(){
 	if( oh_face  and oh_stage==0){
@@ -22,7 +26,7 @@ function oh_face_check(){
 	}
 	if(oh_stage==2 or oh_face){
 		oh_stage = 3;
-		alarm[3] = 45;
+		alarm[3] = irandom_range(45,80);
 		return sOFace;
 	}
 	if(oh_stage==3){

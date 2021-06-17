@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"187f1f54-ba5f-4aa0-b596-5e1e8c272c56","path":"sprites/sSquare2/sSquare2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"187f1f54-ba5f-4aa0-b596-5e1e8c272c56","path":"sprites/sSquare2/sSquare2.yy",},"LayerId":{"name":"0ece5093-16ea-4043-8b96-a63aece04d06","path":"sprites/sSquare2/sSquare2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sSquare2","path":"sprites/sSquare2/sSquare2.yy",},"resourceVersion":"1.0","name":"187f1f54-ba5f-4aa0-b596-5e1e8c272c56","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"40c5bcf9-0b68-4b29-9362-54efcfaf2358","path":"sprites/sSquareGoal/sSquareGoal.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"40c5bcf9-0b68-4b29-9362-54efcfaf2358","path":"sprites/sSquareGoal/sSquareGoal.yy",},"LayerId":{"name":"767ae7d5-9199-4917-b986-278aafc416dd","path":"sprites/sSquareGoal/sSquareGoal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sSquareGoal","path":"sprites/sSquareGoal/sSquareGoal.yy",},"resourceVersion":"1.0","name":"40c5bcf9-0b68-4b29-9362-54efcfaf2358","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sSquare2","path":"sprites/sSquare2/sSquare2.yy",},
+    "spriteId": {"name":"sSquareGoal","path":"sprites/sSquareGoal/sSquareGoal.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,11 +41,11 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5e253f1d-90b2-4325-b40a-7c18ff6bbf9c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"187f1f54-ba5f-4aa0-b596-5e1e8c272c56","path":"sprites/sSquare2/sSquare2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1d563819-19bd-4fc4-aab3-5f8b9cf63481","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"40c5bcf9-0b68-4b29-9362-54efcfaf2358","path":"sprites/sSquareGoal/sSquareGoal.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
-    "lockOrigin": false,
+    "lockOrigin": true,
     "showBackdrop": true,
     "showBackdropImage": false,
     "backdropImagePath": "",
@@ -58,22 +58,22 @@
     "yorigin": 32,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sSquare2","path":"sprites/sSquare2/sSquare2.yy",},
+    "parent": {"name":"sSquareGoal","path":"sprites/sSquareGoal/sSquareGoal.yy",},
     "resourceVersion": "1.3",
-    "name": "sSquare2",
+    "name": "sSquareGoal",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0ece5093-16ea-4043-8b96-a63aece04d06","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"767ae7d5-9199-4917-b986-278aafc416dd","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Good Faces",
-    "path": "folders/Objects/Real/Square/Good Faces.yy",
+    "name": "Real",
+    "path": "folders/Objects/Real.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sSquare2",
+  "name": "sSquareGoal",
   "tags": [],
   "resourceType": "GMSprite",
 }

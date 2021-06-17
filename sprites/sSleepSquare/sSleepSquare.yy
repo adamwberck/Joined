@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Square",
-    "path": "folders/Objects/Real/Square.yy",
+    "name": "Good Faces",
+    "path": "folders/Objects/Real/Square/Good Faces.yy",
   },
   "resourceVersion": "1.0",
   "name": "sSleepSquare",

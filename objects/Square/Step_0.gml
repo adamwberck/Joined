@@ -126,6 +126,9 @@ if(global.rotate and smile){
 	if(!spin){
 		global.unaligned++;
 		spin = true;
+		if(face != Face.happy){
+			oh_face = true;
+		}
 	}
 	var _rs = global.rs*global.rdir;
 	var t_matrix = gen_2x2_array(dcos(_rs),dsin(_rs),//i hat
@@ -140,7 +143,7 @@ if(!global.rotate and !moving){
 	align_to_grid(F_SPD);
 	if(spin){
 		spin = false;
-		oh_face =false;
+		oh_face = false;
 		global.unaligned--;
 	}
 }

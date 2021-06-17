@@ -1,4 +1,5 @@
 function gen_runtime_map(adj_map){
+	// sets a map for adj binary to get sub image
 	
 	#region map
 	//rb r  rt b t lb l lt 

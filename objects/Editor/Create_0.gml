@@ -1,4 +1,9 @@
 /// @description Init Map and functions
+
+ed_tile_map = ds_map_create();
+gen_runtime_map(ed_tile_map)
+
+
 tb_map = ds_map_create();
 ds_map_add(tb_map, tbGoal,edGoal);
 ds_map_add(tb_map, tbHap,edHap);

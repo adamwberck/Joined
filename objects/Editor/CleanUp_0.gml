@@ -4,3 +4,4 @@ ds_map_destroy(str_ed_map);
 ds_map_destroy(str_map);
 ds_map_destroy(str_lay_map);
 ds_map_destroy(str_real_map);
+ds_map_destroy(ed_tile_map);

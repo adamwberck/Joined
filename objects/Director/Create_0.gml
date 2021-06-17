@@ -1,4 +1,15 @@
 /// @description Init Game
+tile_map = ds_map_create();
+gen_runtime_map(tile_map);
+for(var i = 0; i < instance_number(Wall); i++){
+	var w = instance_find(Wall, i);
+	try{
+		w.set_tile_sub();
+	}
+	catch(ignore){
+		ignore = 0;
+	}
+}
 
 sleep_setup();
 
