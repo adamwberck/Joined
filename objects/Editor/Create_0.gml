@@ -45,6 +45,14 @@ ds_map_add(str_lay_map, "s", "Squares");
 ds_map_add(str_lay_map, "w", "Wall");
 ds_map_add(str_lay_map, "n", "");
 
+multi_list = ds_list_create();
+ds_list_add(multi_list,edWall);
+ds_list_add(multi_list,edPit);
+
+rotate_list = ds_list_create();
+ds_list_add(rotate_list,edGoal);
+ds_list_add(rotate_list,edHap);
+ds_list_add(rotate_list,edSquare);
 
 function parse_level(){
 	var level_string = "";
