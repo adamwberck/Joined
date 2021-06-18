@@ -32,8 +32,13 @@ if(win and (instance_number(Goal)>0 or room == Parent) ){
 k_reset = keyboard_check_pressed(ord("R"))
 if(k_reset and !global.rotate and global.unaligned ==0){
 	//TODO reset FX
-	if( instance_exists(Square) ) then Square.time = min(Square.time,1);
+	record_all(Face.happy);
+	if( instance_exists(Square) ) {
+		var _time = Square.time;
+		Square.time = min(Square.time,1);
+	}
 	undo_all();
+	if( instance_exists(Square) ) Square.time = _time;
 }
 
 k_undo = keyboard_check_pressed(ord("Z"));
